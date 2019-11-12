@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div id="map"></div>
+        <form class="mt-3">
+            <div class="row">
+                <div class="col">
+                    <label>Enter the address:</label>
+                    <input type="text" class="form-control" placeholder="Address" id="address">
+                    <small id="addressHelp" class="form-text text-muted"></small>
+                    <button type="button" class="btn btn-primary btn-lg btn-block mt-2" id="getLocation">Get
+                        GeoLocation</button>
+                </div>
+            </div>
+        </form>
+        <textarea name="t" id="t" cols="30" rows="10"></textarea>
+    </div>
+
+    <script>
+        $(document).delegate('#t', 'keydown', function (e) {
+            var keyCode = e.keyCode || e.which;
+
+            if (keyCode == 9) {
+                e.preventDefault();
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+
+                // set textarea value to: text before caret + tab + text after caret
+                $(this).val($(this).val().substring(0, start) +
+                    "\t" +
+                    $(this).val().substring(end));
+
+                // put caret at right position again
+                this.selectionStart =
+                    this.selectionEnd = start + 1;
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu9FoVPm0op0RgT-knEeu3bL96hBoaFlU&libraries=places">
+    </script>
+    <script src="List.js"></script>
+    <script src="markercluster.js"></script>
+    <script src="Mapster.js"></script>
+    <script src="MAP_OPTIONS.js"></script>
+    <script src="jqueryui.mapster.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
