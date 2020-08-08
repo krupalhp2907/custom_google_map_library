@@ -1,4 +1,3 @@
 # custom_google_map_library
-VanillaJS, Google Maps Learning Project.
+JavaScript, Google Maps API learning project based on lecture series.
 Simplifies the use of google maps.
-Includes the feature of clustering.
